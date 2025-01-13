@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #root {
+      position: relative;
+      background-image: url(./images/summerImg.jpg); 
+      background-size: cover; /* устанавливает размер фона */
+      background-position: center; 
+      background-repeat: no-repeat; /* предотвращает повторное отображение */
+      width: 100%;
+      height: 100vh;
+      padding: 0;
+      margin: 0;
+      z-index: 1;
+      background-attachment: fixed;
+    }
+    .settingsGame {
+      width: 1,152px;
+      height: Hug (60px)px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      top: 24px;
+      left: 64px;
+      gap: 12px;
+      opacity: 0px;
+    }
+
+    .audioContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .audioBtn {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      background-color: transparent; /* Убираем фоновый цвет */
+      border: none; /* Убираем рамку */
+      background-color: none;
+    }
+
+    .audioBtnImage {
+      width: 24px;
+      height: 24px;
+      /* background-image: url('/images/play.png'); */
+      background-size: contain; 
+      background-repeat: no-repeat; 
+    }
+    .mainContent {
+      width: 100%;
+      
+    }
+    .startBtn {
+      position: absolute; /* Абсолютное позиционирование */
+      top: 50%; /* Центрируем по вертикали */
+      left: 50%; /* Центрируем по горизонтали */
+      transform: translate(-50%, -50%); /* Смещаем на половину ширины и высоты кнопки */
+      font-size: 16px; /* Размер шрифта */
+      width: Hug (218px)px;
+      height: Hug (48px)px;
+      padding: 12px 36px 12px 36px;
+      gap: 10px;
+      border-radius: 10px 2px 10px 2px;
+      border: 2px 0px 0px 0px;
+      opacity: 0px;
+      border: 2px solid #75F94C;
+      background: #58BF39;
+      cursor: pointer;
+    }
+    table {
+      width: Hug (376px)px;
+      height: Hug (354px)px;
+      /* background-image: url('/images/tableBackground.jpg'); */
+      background-size: cover; 
+      background-repeat: no-repeat; 
+      top: 204px;
+      left: 452px;
+      gap: 6px;
+      opacity: 0px;
+      margin: 0 auto;
+      margin-top: 100px;
+    }
+    table td {
+      width: 40px;
+      height: 40px;
+      padding: 6px 12px 6px 12px;
+      gap: 0px;
+      border-radius: 5px 0px 0px 0px;
+      opacity: 0px;
+      background: #6E75664D;
+      border: 2px solid #999B95
+    }
+
+    select {
+      width: 352px;
+      height: Hug (36px)px;
+      padding: 6px 12px 6px 12px;
+      gap: 0px;
+      border-radius: 5px 0px 0px 0px;
+      opacity: 0px;
+    }
+
+    .gameStatistics {
+      position: relative;
+      width: 280px;
+      height: 407px;
+      gap: 0px;
+      border-radius: 5px 0px 0px 0px;
+      background-image: url(/images/Subtract.png);
+      text-align: center;
+      margin: 0 auto;
+      margin-top: 200px;
+      padding: 0;
+      overflow: hidden;  /* Прячем часть псевдоэлемента вне блока */
+    }
+
+    .gameStatistics::before {
+      content: '';
+      position: absolute;
+      top: -70px;        /* Сдвигаем псевдоэлемент вверх */
+      left: 60px;
+      right: 60px;
+      height: 125px;     /* Высота "изгиба" */
+      background: transparent; 
+      border-radius: 80%; /* Закругляем верхнюю границу */
+      z-index: 1;
+    }
+
+    .logoContainer{
+      position: absolute;
+      content: '';
+      display: flex;
+      justify-content: center; /* Центрирование по горизонтали */
+      align-items: center;
+      top: 105px;
+      left: 45.250%;
+      width: 144px;
+      height: 144px;
+      padding: 0;
+      border-radius: 50%;
+      border: 2px 0px 0px 0px;
+      background-image: url(/images/Ellipse.png);
+      z-index: 2;
+    }
+    .logoImage {
+      width: 90px;
+      height: 95px;
+      top: 202px;
+      left: 595px;
+      gap: 0px;
+      opacity: 0px;
+
+    }
+    .gameStatisticsTitle {
+      font-family: Roboto;
+      font-size: 48px;
+      font-weight: 600;
+      padding: 0;
+      margin-top: 80px;
+      margin-bottom: 0;
+    }
+    .player1Statistic {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .player2Statistic {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .treasure {
+      width: 35px;
+      height: 35px;
+      filter: brightness(150%);
+    }
+
+    .man1 {
+      width: 35px;
+      height: 35px;
+      z-index: 2;
+      filter: brightness(150%);
+      background-size: cover;
+      animation: move 1s linear infinite;
+    }
+
+    .man2 {
+      width: 35px;
+      height: 35px;
+      z-index: 2;
+      filter: brightness(150%);
+      background-size: cover;
+      animation: move 1s linear infinite;
+    }
+
+    @keyframes move {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(4px); } /* Сдвигаем вправо */
+    100% { transform: translateX(0); }
+}
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="index.js" type="module"></script>
+</body>
+</html>
